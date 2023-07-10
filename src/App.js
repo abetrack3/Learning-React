@@ -8,11 +8,11 @@ const Html5Element = Object.freeze({
 
 });
 
-const Pet = () => {
+const Pet = (props) => {
     return React.createElement(Html5Element.DIV, {}, [
-        React.createElement(Html5Element.H1, {}, "Luna"),
-        React.createElement(Html5Element.H2, {}, "Raymond"),
-        React.createElement(Html5Element.H2, {}, "Havanese"),
+        React.createElement(Html5Element.H1, {}, props.name),
+        React.createElement(Html5Element.H2, {}, props.animal),
+        React.createElement(Html5Element.H2, {}, props.breed),
     ]);
 }
 
@@ -20,11 +20,24 @@ const App = () => {
     return React.createElement(
         Html5Element.DIV,
         { id: 'sub-root' },
+        // {},
         [
-            React.createElement(Html5Element.H1, {}, "Adopt me"),
-            React.createElement(Pet),
-            React.createElement(Pet),
-            React.createElement(Pet),
+            React.createElement(Html5Element.H1, {}, "Adopt me!"),
+            React.createElement(Pet, {
+                animal: 'Dog',
+                name: 'Luna',
+                breed: 'Havanese'
+            }),
+            React.createElement(Pet, {
+                animal: 'Bird',
+                name: 'Pepper',
+                breed: 'Cockatiel'
+            }),
+            React.createElement(Pet, {
+                animal: 'Cat',
+                name: 'Doink',
+                breed: 'Mixed'
+            }),
         ]
     );
 }
