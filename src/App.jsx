@@ -1,3 +1,5 @@
+import { createElement } from "react";
+import { createRoot } from "react-dom/client";
 // your code goes here
 
 const Html5Element = Object.freeze({
@@ -7,31 +9,31 @@ const Html5Element = Object.freeze({
 });
 
 const Pet = (props) => {
-    return React.createElement(Html5Element.DIV, {}, [
-        React.createElement(Html5Element.H1, {}, props.name),
-        React.createElement(Html5Element.H2, {}, props.animal),
-        React.createElement(Html5Element.H2, {}, props.breed),
+    return createElement(Html5Element.DIV, {}, [
+        createElement(Html5Element.H1, {}, props.name),
+        createElement(Html5Element.H2, {}, props.animal),
+        createElement(Html5Element.H2, {}, props.breed),
     ]);
 };
 
 const App = () => {
-    return React.createElement(
+    return createElement(
         Html5Element.DIV,
         { id: 'sub-root' },
         // {},
         [
-            React.createElement(Html5Element.H1, {}, 'Adopt me!'),
-            React.createElement(Pet, {
+            createElement(Html5Element.H1, {}, 'Adopt me!'),
+            createElement(Pet, {
                 animal: 'Dog',
                 name: 'Luna',
                 breed: 'Havanese',
             }),
-            React.createElement(Pet, {
+            createElement(Pet, {
                 animal: 'Bird',
                 name: 'Pepper',
                 breed: 'Cockatiel',
             }),
-            React.createElement(Pet, {
+            createElement(Pet, {
                 animal: 'Cat',
                 name: 'Doink',
                 breed: 'Mixed',
@@ -41,5 +43,5 @@ const App = () => {
 };
 
 const rootContainer = document.getElementById('root');
-const reactRoot = ReactDOM.createRoot(rootContainer);
-reactRoot.render(React.createElement(App, { id: 'where-does-this-id-go' }));
+const reactRoot = createRoot(rootContainer);
+reactRoot.render(createElement(App, { id: 'where-does-this-id-go' }));
